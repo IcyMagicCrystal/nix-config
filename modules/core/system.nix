@@ -3,10 +3,15 @@
   flake.nixosModules.system = { pkgs, lib, ... }: {
 
     # Enable the KDE Plasma Desktop Environment.
-    services.displayManager.sddm = {
+    services.greetd = {
       enable = true;
-      wayland.enable = true;
+      settings.default_session = {
+        command = "${pkgs.cage} -s -mlast -- regreet";
+        user = "greeter";
+      };
     };
+
+    programs.regreet.enable = true;
 
     hardware.bluetooth.enable = true;
 
