@@ -3,7 +3,10 @@
   flake.nixosModules.system = { pkgs, lib, ... }: {
 
     # Enable the KDE Plasma Desktop Environment.
-    services.displayManager.sddm.enable = true;
+    services.displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
 
     hardware.bluetooth.enable = true;
 
