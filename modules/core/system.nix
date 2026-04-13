@@ -1,12 +1,12 @@
 { self, inputs, ... }: {
 
-  flake.nixosModules.system = { pkgs, lib, ... }: {
+  flake.nixosModules.system = { pkgs, lib, config, ... }: {
 
     # Enable the KDE Plasma Desktop Environment.
     services.greetd = {
       enable = true;
       settings.default_session = {
-        command = "${pkgs.cage} -s -mlast -- regreet";
+        command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
         user = "greeter";
       };
     };

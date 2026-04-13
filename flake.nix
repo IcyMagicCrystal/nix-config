@@ -6,6 +6,8 @@
     import-tree.url = "github:vic/import-tree";
 
     wrapper-modules.url = "github:BirdeeHub/nix-wrapper-modules";
+    
+    nixos-apple-silicon.url = "github:nix-community/nixos-apple-silicon";
   };
 
   outputs = inputs: inputs.flake-parts.lib.mkFlake
