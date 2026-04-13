@@ -7,15 +7,19 @@
       self.nixosModules.core
       self.nixosModules.usersIcy
       self.nixosModules.niri
-      inputs.apple-silicon-support.nixosModules.apple-silicon-support
+      inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     ];
+
+    services.upower.enable = true;
 
     boot.loader = {
       efi.canTouchEfiVariables = false;
       systemd-boot.enable = true;
     };
 
-    hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+    hardware.asahi = {
+      peripheralFirmwareDirectory = ./firmware;
+    };  
 
     networking.hostName = "M2-Macbook-Air";
 
