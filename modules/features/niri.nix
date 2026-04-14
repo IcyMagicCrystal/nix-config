@@ -167,7 +167,7 @@
           "Mod+Page_Down".focus-workspace-down = _: {};
           "Mod+Page_Up".focus-workspace-up = _: {};
           "Mod+U".focus-workspace-down = _: {};
-          "Mod+I".focus-workspace-down = _: {};
+          "Mod+I".focus-workspace-up = _: {};
 
           "Mod+1".focus-workspace = 1;
           "Mod+2".focus-workspace = 2;
