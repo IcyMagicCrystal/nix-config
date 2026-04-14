@@ -10,6 +10,8 @@
     packages.myNiri = inputs.wrapper-modules.wrappers.niri.wrap {
       inherit pkgs;
       v2-settings = true;
+
+
       settings = {
         spawn-at-startup = [
           (lib.getExe self'.packages.myNoctalia)
@@ -37,17 +39,96 @@
         };
 
         binds = {
-          "Mod+Return".spawn = lib.getExe pkgs.foot;
+          "Mod+Shift+Slash".show-hotkey-overlay = _: {};
 
-          "Mod+Q".close-window = _: {};
+          "Mod+T" = _: {
+            props = { hotkey-overlay-title = "Launch Terminal: Ghostty"; };
+            content = {
+              spawn-sh = lib.getExe pkgs.ghostty;
+            };
+          };
+          "Mod+Shift+T" = _: {
+            props = { hotkey-overlay-title = "Launch Terminal: Foot"; };
+            content = {
+              spawn-sh = lib.getExe pkgs.foot;
+            };
+          };
+          "Mod+D" = _: {
+            props = { hotkey-overlay-title = "Launch Launcher: Noctalia's"; };
+            content = {
+              spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
+            };
+          };
+          "Mod+Shift+D" = _: {
+            props = { hotkey-overlay-title = "Launch Control Center: Noctalia's"; };
+            content = {
+              spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call controlCenter toggle";
+            };
+          };
+          "Super+Alt+L" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call lockScreen lock";
+            };
+          };
+
+          "XF86AudioRaiseVolume" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0";
+            };
+          };
+          "XF86AudioLowerVolume" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-";
+            };
+          };
+          "XF86AudioMute" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+            };
+          };
+          "XF86AudioMicMute" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+            };
+          };
+
+          "XF86MonBrightnessUp" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${lib.getExe pkgs.brightnessctl} --class=backlight set +10%";
+            };
+          };
+          "XF86MonBrightnessDown" = _: {
+            props = { allow-when-locked = true; };
+            content = {
+              spawn-sh = "${lib.getExe pkgs.brightnessctl} --class=backlight set +10-";
+            };
+          };
+ 
+          "Mod+O" = _: {
+            props = { repeat = false; };
+            content = {
+              toggle-overview = _: {};
+            };
+          };
+          "Mod+Q" = _: {
+            props = { repeat = false; };
+            content = {
+              close-window = _: {};
+            };
+          };         
+
+
           "Mod+G".maximize-column = _: {};
           "Mod+F".fullscreen-window = _: {};
           "Mod+Shift+F".toggle-window-floating = _: {};
           "Mod+C".center-column = _: {};
 
-          "Mod+S".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call settings toggle";
-          "Mod+Z".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call controlCenter toggle";
-          "Mod+Space".spawn-sh = "${lib.getExe self'.packages.myNoctalia} ipc call launcher toggle";
 
           "Mod+H".focus-column-left = _: {};
           "Mod+L".focus-column-right = _: {};
@@ -80,6 +161,8 @@
           "Mod+Shift+R".switch-preset-window-height = _:{};
         };
       };
+
+
     };
   };
 }
