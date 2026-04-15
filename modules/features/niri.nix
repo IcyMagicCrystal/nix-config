@@ -169,6 +169,16 @@
           "Mod+U".focus-workspace-down = _: {};
           "Mod+I".focus-workspace-up = _: {};
 
+          "Mod+Ctrl+Page_Down".move-column-to-workspace-down = _: {};
+          "Mod+Ctrl+Page_Up".move-column-to-workspace-up = _: {};
+          "Mod+Ctrl+U".move-column-to-workspace-down = _: {};
+          "Mod+Ctrl+I".move-column-to-workspace-down = _: {};
+
+          "Mod+Shift+Page_Down".move-workspace-down = _: {};
+          "Mod+Shift+Page_Up".move-workspace-up = _: {};
+          "Mod+Shift+U".move-workspace-down = _: {};
+          "Mod+Shift+I".move-workspace-down = _: {};
+
           "Mod+1".focus-workspace = 1;
           "Mod+2".focus-workspace = 2;
           "Mod+3".focus-workspace = 3;
@@ -212,6 +222,9 @@
 
           "Mod+Shift+Minus".set-window-height = "-10%";
           "Mod+Shift+Equal".set-window-height = "+10%";
+
+          "Mod+V".toggle-window-floating = _: {};
+          "Mod+Shift+V".switch-focus-between-floating-and-tiling = _: {};
 
           "Mod+W".toggle-column-tabbed-display = _: {};
 
