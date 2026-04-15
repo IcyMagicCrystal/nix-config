@@ -7,6 +7,14 @@
       isNormalUser = true;
       description = "icy";
       extraGroups = [ "networkmanager" "wheel" ];
+
+      
+      packages = with pkgs; [
+        orca-slicer
+        freecad
+        joplin-desktop
+        kicad
+      ];
     };
   };
 

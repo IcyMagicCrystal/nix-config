@@ -21,6 +21,12 @@
 
         input.keyboard.xkb.layout = "us";
 
+        outputs = {
+          "eDP-1" = {
+            scale = 1.0;
+          };
+        };
+
         layout = {
           gaps = 5;
                 preset-column-widths = [
@@ -106,7 +112,7 @@
           "XF86MonBrightnessDown" = _: {
             props = { allow-when-locked = true; };
             content = {
-              spawn-sh = "${lib.getExe pkgs.brightnessctl} --class=backlight set +10-";
+              spawn-sh = "${lib.getExe pkgs.brightnessctl} --class=backlight set 10%-";
             };
           };
  
