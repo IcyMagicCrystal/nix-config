@@ -16,9 +16,6 @@
     # Default display manager for Plasma
     services.displayManager.plasma-login-manager = {
       enable = true;
-  
-    # To use Wayland (Experimental for SDDM)
-      wayland.enable = true;
     };
 
     # programs.regreet.enable = true;
