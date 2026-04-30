@@ -2,23 +2,18 @@
 
   flake.nixosModules.system = { pkgs, lib, config, ... }: {
 
-    # services.greetd = {
-    #   enable = true;
-    #   settings.default_session = {
-    #    command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
-    #     user = "greeter";
-    #   };
-    # };
+    services.greetd = {
+      enable = true;
+      settings.default_session = {
+       command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -mlast -- ${config.programs.regreet.package}/bin/regreet";
+        user = "greeter";
+      };
+    };
 
     # Enable Plasma 
     services.desktopManager.plasma6.enable = true;
 
-    # Default display manager for Plasma
-    services.displayManager.plasma-login-manager = {
-      enable = true;
-    };
-
-    # programs.regreet.enable = true;
+    programs.regreet.enable = true;
 
     hardware.bluetooth.enable = true;
 
