@@ -22,9 +22,19 @@
         input.keyboard.xkb.layout = "us";
 
         outputs = {
+
           "eDP-1" = {
             scale = 1.25;
           };
+
+	        "Dell Inc. DELL U2421HE 61CM223" = {
+            transform = "270";
+	        };
+
+          "Samsung Electric Company S34J55x H4LN801160" = {
+
+          };
+
         };
 
         layout = {
