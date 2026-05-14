@@ -14,6 +14,7 @@
         freecad
         joplin-desktop
         kicad
+        lunar-client
       ];
     };
   };
