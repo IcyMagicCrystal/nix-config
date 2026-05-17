@@ -14,8 +14,9 @@
         freecad
         joplin-desktop
         kicad
-        lunar-client
-      ];
+        ] ++ lib.optionals stdenv.isx86_64 [
+        lunar_client
+        ];
     };
   };
 
