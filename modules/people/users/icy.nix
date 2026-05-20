@@ -16,7 +16,7 @@
         kicad
         prismlauncher
       ] ++ lib.optionals stdenv.isx86_64 [
-        lunar_client
+        lunar-client
       ];
     };
   };
