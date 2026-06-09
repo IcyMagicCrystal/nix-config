@@ -5,7 +5,6 @@
     imports = [
       self.nixosModules.AM5ATXDesktopHardware
       self.nixosModules.core
-      self.nixosModules.usersIcy
       self.nixosModules.niri
     ];
 

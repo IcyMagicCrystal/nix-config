@@ -87,9 +87,6 @@
         gh
         neovim
 
-        rclone
-        proton-vpn
-
         # system tools
         sysstat
         lm_sensors # for `sensors` command

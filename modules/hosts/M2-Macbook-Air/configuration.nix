@@ -5,7 +5,6 @@
     imports = [
       self.nixosModules.M2MacbookAirHardware
       self.nixosModules.core
-      self.nixosModules.usersIcy
       self.nixosModules.niri
       inputs.nixos-apple-silicon.nixosModules.apple-silicon-support
     ];
