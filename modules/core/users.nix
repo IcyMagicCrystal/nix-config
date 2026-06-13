@@ -3,12 +3,12 @@
   flake.nixosModules.users = { pkgs, lib, config, ... }: {
 
     imports = [
-      home-manager.nixosModules.home-manager
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager.useGlobalPkgs = true;
         home-manager.useUserPackages = true;
 
-        home-manager.users.icy = import self.nixosModules.usersIcy;
+        home-manager.users.icy = self.homeModules.usersIcy;
 
         # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
       }
