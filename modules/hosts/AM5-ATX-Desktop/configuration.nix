@@ -6,6 +6,7 @@
       self.nixosModules.AM5ATXDesktopHardware
       self.nixosModules.core
       self.nixosModules.niri
+      self.nixosModules.weylus
     ];
 
     boot.loader = {
